@@ -7,7 +7,7 @@ updates:
     schedule: { interval: daily }
     allow:
       - dependency-type: direct
-    versioning-strategy: widden
+    versioning-strategy: widen
     open-pull-requests-limit: 15
     assignees:
       - benjaminmal
