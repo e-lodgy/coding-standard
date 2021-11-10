@@ -1,0 +1,22 @@
+{
+    "name": "elodgy/coding-standard",
+    "description": "Coding standard used in E-Lodgy",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "benjaminmal",
+            "email": "bbenben778@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "symplify/easy-coding-standard": "^9.4"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^1.1"
+    },
+    "autoload-dev": {
+        "ELodgy\\CodingStandard\\Tests\\": "tests/"
+    }
+}
