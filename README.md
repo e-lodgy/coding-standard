@@ -1,5 +1,7 @@
 <h1 align="center">Coding Standard</h1>
 
+[![CI](https://github.com/benjaminmal/coding-standard/actions/workflows/ci.yaml/badge.svg)](https://github.com/benjaminmal/coding-standard/actions/workflows/ci.yaml)
+
 Coding standard configuration used by E-Lodgy.
 
 Installation & usage
