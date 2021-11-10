@@ -122,7 +122,8 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $services->set(ListSyntaxFixer::class);
     $services->set(CleanNamespaceFixer::class);
     $services->set(NoLeadingNamespaceWhitespaceFixer::class);
-    $services->set(BinaryOperatorSpacesFixer::class);
+    $services->set(BinaryOperatorSpacesFixer::class)
+        ->call('configure', [['operators' => ['|' => 'no_space']]]);
     $services->set(IncrementStyleFixer::class)
         ->call('configure', [['style' => 'post']]);
     $services->set(LogicalOperatorsFixer::class);
