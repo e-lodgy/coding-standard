@@ -32,6 +32,8 @@ jobs:
           extensions: intl
           tools: symfony
           coverage: none
+        env:
+          COMPOSER_TOKEN: ${{ secrets.PAT }}
 
       - name: 'Get Composer cache directory'
         id: composer-cache
