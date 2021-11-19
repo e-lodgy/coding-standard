@@ -55,6 +55,11 @@ jobs:
 
       # --- 🛠 Test 🛠 ----------
 
+      - name: Validate renovate
+        uses: rinchsan/renovate-config-validator@v0.0.8
+        with:
+          pattern: 'renovate.json'
+
       - name: 'Run PHPStan'
         run: 'vendor/bin/phpstan analyse --error-format=github --no-interaction --no-progress --ansi'
 

@@ -6,3 +6,4 @@
 /.gitattributes export-ignore
 /phpstan.neon export-ignore
 /README.md export-ignore
+/renovate.json export-ignore
