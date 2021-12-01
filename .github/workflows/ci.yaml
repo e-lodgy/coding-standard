@@ -31,7 +31,6 @@ jobs:
         with:
           php-version: "${{ matrix.php }}"
           extensions: intl
-          tools: symfony
           coverage: none
         env:
           COMPOSER_TOKEN: ${{ secrets.PAT }}
@@ -51,15 +50,10 @@ jobs:
       - name: 'Install PHP dependencies'
         run: 'composer update --no-interaction --no-progress --verbose --ansi'
 
-      - name: 'Validate composer.json'
-        run: 'composer validate --ansi --strict'
-
       # --- 🛠 Test 🛠 ----------
 
-      - name: Validate renovate
-        uses: rinchsan/renovate-config-validator@v0.0.9
-        with:
-          pattern: 'renovate.json'
+      - name: 'Validate composer.json'
+        run: 'composer validate --ansi --strict'
 
       - name: 'Run PHPStan'
         run: 'vendor/bin/phpstan analyse --error-format=github --no-interaction --no-progress --ansi'
@@ -72,6 +66,3 @@ jobs:
           path: ~/.symfony/cache
           key: ${{ runner.os }}-php-${{ matrix.php }}
           restore-keys: ${{ runner.os }}-php-
-
-      - name: 'Check for security vulnerabilities'
-        run: 'symfony security:check'
