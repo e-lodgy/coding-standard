@@ -95,7 +95,25 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $services->set(MagicMethodCasingFixer::class);
     $services->set(NativeFunctionCasingFixer::class);
     $services->set(CastSpacesFixer::class);
-    $services->set(OrderedClassElementsFixer::class);
+    $services->set(OrderedClassElementsFixer::class)
+        ->call('configure', [['order' => [
+            'use_trait',
+            'constant_public',
+            'constant_protected',
+            'constant_private',
+            'property_public',
+            'property_protected',
+            'property_private',
+            'construct',
+            'destruct',
+            'magic',
+            'phpunit',
+            'method_abstract',
+            'method_public',
+            'method_protected',
+            'method_private',
+        ],
+    ]]);
     $services->set(SelfStaticAccessorFixer::class);
     $services->set(NoEmptyCommentFixer::class);
     $services->set(NativeConstantInvocationFixer::class);
