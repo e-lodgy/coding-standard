@@ -112,7 +112,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
             'method_public',
             'method_protected',
             'method_private',
-        ]
+        ],
     ]]);
     $services->set(SelfStaticAccessorFixer::class);
     $services->set(NoEmptyCommentFixer::class);
