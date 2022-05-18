@@ -56,8 +56,5 @@ jobs:
             -   name: Validate composer.json
                 run: composer validate --ansi --strict
 
-            -   name: Run PHPStan
-                run: vendor/bin/phpstan analyse --configuration=phpstan-ci.neon --error-format=github --no-interaction --no-progress --ansi
-
             -   name: Run ECS
                 run: vendor/bin/ecs check tests ecs.php --no-interaction --no-progress-bar --ansi

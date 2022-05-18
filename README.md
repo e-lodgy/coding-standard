@@ -13,15 +13,15 @@ $ composer require --dev elodgy/coding-standard
 
 2. Import the configuration file in your `ecs.php`:
 ```php
-$containerConfigurator->import('vendor/elodgy/coding-standard/ecs.php');
+$config->import('vendor/elodgy/coding-standard/ecs.php');
 ```
 
 Example config (ecs.php)
 ------------------------
 ```php
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+use Symplify\EasyCodingStandard\Config\ECSConfig;
    
-return static function (ContainerConfigurator $containerConfigurator): void {
-    $containerConfigurator->import('vendor/elodgy/coding-standard/ecs.php');
+return static function (ECSConfig $config): void {
+    $config->import('vendor/elodgy/coding-standard/ecs.php');
 };
 ```
