@@ -19,6 +19,7 @@ jobs:
             fail-fast: false
             matrix:
                 php: [7.4, 8.0, 8.1]
+                symfony: [5.4.*, 6.0.*, none]
 
         steps:
             # --- ⚙️ Setup ⚙️ ----------
@@ -34,6 +35,10 @@ jobs:
                     coverage: none
                 env:
                     COMPOSER_TOKEN: ${{ secrets.PAT }}
+
+            -   name: Restrict Symfony version
+                if: matrix.symfony != 'none'
+                run: composer config extra.symfony.require "${{ matrix.symfony }}" --no-interaction --verbose --ansi
 
             -   name: Get Composer cache directory
                 id: composer-cache
