@@ -17,6 +17,6 @@
         "phpstan/phpstan": "^1.1"
     },
     "autoload-dev": {
-        "ELodgy\\CodingStandard\\Tests\\": "tests/"
+        "Elodgy\\CodingStandard\\Tests\\": "tests/"
     }
 }
