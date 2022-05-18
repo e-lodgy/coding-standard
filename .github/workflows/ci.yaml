@@ -13,7 +13,7 @@ jobs:
         runs-on: ubuntu-latest
         timeout-minutes: 5
 
-        name: 🚧 Build 🚧 | PHP ${{ matrix.php }}
+        name: 🚧 Build 🚧 | PHP ${{ matrix.php }} | Symfony ${{ matrix.symfony }}
 
         strategy:
             fail-fast: false
