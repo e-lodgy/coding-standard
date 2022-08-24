@@ -100,6 +100,7 @@ return static function (ECSConfig $config): void {
             'constant_public',
             'constant_protected',
             'constant_private',
+            'case',
             'property_public',
             'property_protected',
             'property_private',
