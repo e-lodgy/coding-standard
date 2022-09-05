@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Elodgy\CodingStandard\Tests;
+namespace Benjaminmal\CodingStandard\Tests;
 
 class TestClass
 {
