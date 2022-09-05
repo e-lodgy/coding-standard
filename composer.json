@@ -1,12 +1,13 @@
 {
-    "name": "elodgy/coding-standard",
+    "name": "e-lodgy/coding-standard",
     "description": "Coding standard used in E-Lodgy",
     "type": "library",
     "license": "MIT",
     "authors": [
         {
-            "name": "benjaminmal",
-            "email": "bbenben778@gmail.com"
+            "name": "Benjamin Malgras",
+            "homepage": "https://github.com/benjaminmal",
+            "role": "Developer"
         }
     ],
     "require": {
