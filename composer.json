@@ -1,5 +1,5 @@
 {
-    "name": "e-lodgy/coding-standard",
+    "name": "benjaminmal/coding-standard",
     "description": "Coding standard used in E-Lodgy",
     "type": "library",
     "license": "MIT",
@@ -15,6 +15,6 @@
         "symplify/easy-coding-standard": "^9.4 || ^10.0 || ^11.0"
     },
     "autoload-dev": {
-        "Elodgy\\CodingStandard\\Tests\\": "tests/"
+        "Benjaminmal\\CodingStandard\\Tests\\": "tests/"
     }
 }
