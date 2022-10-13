@@ -13,12 +13,13 @@ jobs:
         runs-on: ubuntu-latest
         timeout-minutes: 5
 
-        name: 🚧 Build 🚧 | PHP ${{ matrix.php }}
+        name: 🚧 Build 🚧 | PHP ${{ matrix.php }} ${{ matrix.lowest }}
 
         strategy:
             fail-fast: false
             matrix:
                 php: [7.4, 8.0, 8.1]
+                lowest: ['', '--prefer-lowest']
 
         steps:
             # --- ⚙️ Setup ⚙️ ----------
@@ -49,7 +50,7 @@ jobs:
                         ${{ runner.os }}-php-
 
             -   name: Install PHP dependencies
-                run: composer update --no-interaction --no-progress --verbose --ansi
+                run: composer update ${{ matrix.lowest }} --no-interaction --no-progress --verbose --ansi
 
             # --- 🛠 Test 🛠 ----------
 
