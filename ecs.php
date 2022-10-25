@@ -151,7 +151,6 @@ return static function (ECSConfig $config): void {
     $config->rule(PhpUnitConstructFixer::class);
     $config->rule(PhpUnitDedicateAssertFixer::class);
     $config->rule(PhpUnitDedicateAssertInternalTypeFixer::class);
-    $config->rule(PhpUnitExpectationFixer::class);
     $config->rule(PhpUnitMethodCasingFixer::class);
     $config->ruleWithConfiguration(AlignMultilineCommentFixer::class, ['comment_type' => 'all_multiline']);
     $config->rule(NoEmptyPhpdocFixer::class);
@@ -193,4 +192,8 @@ return static function (ECSConfig $config): void {
     ]);
     $config->rule(NoSpacesAroundOffsetFixer::class);
     $config->rule(TypesSpacesFixer::class);
+
+    if (\PHP_VERSION_ID >= 80000) { // The check fails on PHP <8.0. See https://github.com/symplify/symplify/issues/3130
+        $config->rule(PhpUnitExpectationFixer::class);
+    }
 };
