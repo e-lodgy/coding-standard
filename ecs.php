@@ -85,8 +85,6 @@ return static function (ECSConfig $config): void {
     // PSR-12
     $config->sets([SetList::PSR_12]);
 
-    $config->ruleWithConfiguration(NoTrailingCommaInSinglelineFixer::class, ['elements' => ['array']]);
-
     // Fixers
     $config->rules([
         NoAliasFunctionsFixer::class,
