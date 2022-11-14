@@ -3,8 +3,8 @@
 declare(strict_types=1);
 
 use PhpCsFixer\Fixer\Alias\NoAliasFunctionsFixer;
-use PhpCsFixer\Fixer\ArrayNotation\NoTrailingCommaInSinglelineArrayFixer;
 use PhpCsFixer\Fixer\Basic\NonPrintableCharacterFixer;
+use PhpCsFixer\Fixer\Basic\NoTrailingCommaInSinglelineFixer;
 use PhpCsFixer\Fixer\Casing\LowercaseStaticReferenceFixer;
 use PhpCsFixer\Fixer\Casing\MagicConstantCasingFixer;
 use PhpCsFixer\Fixer\Casing\MagicMethodCasingFixer;
@@ -85,9 +85,10 @@ return static function (ECSConfig $config): void {
     // PSR-12
     $config->sets([SetList::PSR_12]);
 
+    $config->ruleWithConfiguration(NoTrailingCommaInSinglelineFixer::class, ['elements' => ['array']]);
+
     // Fixers
     $config->rule(NoAliasFunctionsFixer::class);
-    $config->rule(NoTrailingCommaInSinglelineArrayFixer::class);
     $config->rule(NonPrintableCharacterFixer::class);
     $config->rule(LowercaseStaticReferenceFixer::class);
     $config->rule(MagicConstantCasingFixer::class);
