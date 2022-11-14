@@ -88,113 +88,118 @@ return static function (ECSConfig $config): void {
     $config->ruleWithConfiguration(NoTrailingCommaInSinglelineFixer::class, ['elements' => ['array']]);
 
     // Fixers
-    $config->rule(NoAliasFunctionsFixer::class);
-    $config->rule(NonPrintableCharacterFixer::class);
-    $config->rule(LowercaseStaticReferenceFixer::class);
-    $config->rule(MagicConstantCasingFixer::class);
-    $config->rule(MagicMethodCasingFixer::class);
-    $config->rule(NativeFunctionCasingFixer::class);
-    $config->rule(CastSpacesFixer::class);
-    $config->ruleWithConfiguration(OrderedClassElementsFixer::class, [
-        'order' => [
-            'use_trait',
-            'constant_public',
-            'constant_protected',
-            'constant_private',
-            'case',
-            'property_public',
-            'property_protected',
-            'property_private',
-            'construct',
-            'destruct',
-            'magic',
-            'phpunit',
-            'method_abstract',
-            'method_public',
-            'method_protected',
-            'method_private',
-        ],
+    $config->rules([
+        NoAliasFunctionsFixer::class,
+        NonPrintableCharacterFixer::class,
+        LowercaseStaticReferenceFixer::class,
+        MagicConstantCasingFixer::class,
+        MagicMethodCasingFixer::class,
+        NativeFunctionCasingFixer::class,
+        CastSpacesFixer::class,
+        SelfStaticAccessorFixer::class,
+        NoEmptyCommentFixer::class,
+        NativeConstantInvocationFixer::class,
+        NoAlternativeSyntaxFixer::class,
+        NoSuperfluousElseifFixer::class,
+        NoUnneededCurlyBracesFixer::class,
+        NoUselessElseFixer::class,
+        TrailingCommaInMultilineFixer::class,
+        NoTrailingCommaInSinglelineFixer::class,
+        DoctrineAnnotationArrayAssignmentFixer::class,
+        DoctrineAnnotationBracesFixer::class,
+        DoctrineAnnotationIndentationFixer::class,
+        FunctionTypehintSpaceFixer::class,
+        LambdaNotUsedImportFixer::class,
+        NullableTypeDeclarationForDefaultNullValueFixer::class,
+        StaticLambdaFixer::class,
+        VoidReturnFixer::class,
+        FullyQualifiedStrictTypesFixer::class,
+        NoLeadingImportSlashFixer::class,
+        NoUnusedImportsFixer::class,
+        CombineConsecutiveIssetsFixer::class,
+        CombineConsecutiveUnsetsFixer::class,
+        DeclareParenthesesFixer::class,
+        SingleSpaceAfterConstructFixer::class,
+        ListSyntaxFixer::class,
+        CleanNamespaceFixer::class,
+        NoLeadingNamespaceWhitespaceFixer::class,
+        LogicalOperatorsFixer::class,
+        NotOperatorWithSuccessorSpaceFixer::class,
+        ObjectOperatorWithoutWhitespaceFixer::class,
+        StandardizeIncrementFixer::class,
+        StandardizeNotEqualsFixer::class,
+        TernaryToNullCoalescingFixer::class,
+        PhpUnitConstructFixer::class,
+        PhpUnitDedicateAssertFixer::class,
+        PhpUnitDedicateAssertInternalTypeFixer::class,
+        PhpUnitMethodCasingFixer::class,
+        NoEmptyPhpdocFixer::class,
+        PhpdocAnnotationWithoutDotFixer::class,
+        PhpdocIndentFixer::class,
+        PhpdocNoUselessInheritdocFixer::class,
+        PhpdocOrderFixer::class,
+        PhpdocScalarFixer::class,
+        PhpdocSeparationFixer::class,
+        PhpdocSingleLineVarSpacingFixer::class,
+        PhpdocTagCasingFixer::class,
+        PhpdocTrimConsecutiveBlankLineSeparationFixer::class,
+        PhpdocTrimFixer::class,
+        PhpdocTypesFixer::class,
+        PhpdocVarAnnotationCorrectOrderFixer::class,
+        PhpdocVarWithoutNameFixer::class,
+        NoUselessReturnFixer::class,
+        NoEmptyStatementFixer::class,
+        NoSinglelineWhitespaceBeforeSemicolonsFixer::class,
+        SemicolonAfterInstructionFixer::class,
+        SpaceAfterSemicolonFixer::class,
+        DeclareStrictTypesFixer::class,
+        SingleQuoteFixer::class,
+        NoSpacesAroundOffsetFixer::class,
+        TypesSpacesFixer::class,
     ]);
-    $config->rule(SelfStaticAccessorFixer::class);
-    $config->rule(NoEmptyCommentFixer::class);
-    $config->rule(NativeConstantInvocationFixer::class);
-    $config->rule(NoAlternativeSyntaxFixer::class);
-    $config->rule(NoSuperfluousElseifFixer::class);
-    $config->rule(NoUnneededCurlyBracesFixer::class);
-    $config->rule(NoUselessElseFixer::class);
-    $config->rule(TrailingCommaInMultilineFixer::class);
-    $config->rule(DoctrineAnnotationArrayAssignmentFixer::class);
-    $config->rule(DoctrineAnnotationBracesFixer::class);
-    $config->rule(DoctrineAnnotationIndentationFixer::class);
-    $config->rule(FunctionTypehintSpaceFixer::class);
-    $config->rule(LambdaNotUsedImportFixer::class);
-    $config->rule(NullableTypeDeclarationForDefaultNullValueFixer::class);
-    $config->rule(StaticLambdaFixer::class);
-    $config->rule(VoidReturnFixer::class);
-    $config->rule(FullyQualifiedStrictTypesFixer::class);
-    $config->rule(NoLeadingImportSlashFixer::class);
-    $config->rule(NoUnusedImportsFixer::class);
-    $config->rule(CombineConsecutiveIssetsFixer::class);
-    $config->rule(CombineConsecutiveUnsetsFixer::class);
-    $config->rule(DeclareParenthesesFixer::class);
-    $config->rule(SingleSpaceAfterConstructFixer::class);
-    $config->rule(ListSyntaxFixer::class);
-    $config->rule(CleanNamespaceFixer::class);
-    $config->rule(NoLeadingNamespaceWhitespaceFixer::class);
-    $config->ruleWithConfiguration(BinaryOperatorSpacesFixer::class, ['operators' => ['|' => 'no_space']]);
-    $config->ruleWithConfiguration(IncrementStyleFixer::class, ['style' => 'post']);
-    $config->rule(LogicalOperatorsFixer::class);
-    $config->rule(NotOperatorWithSuccessorSpaceFixer::class);
-    $config->rule(ObjectOperatorWithoutWhitespaceFixer::class);
-    $config->rule(StandardizeIncrementFixer::class);
-    $config->rule(StandardizeNotEqualsFixer::class);
-    $config->rule(TernaryToNullCoalescingFixer::class);
-    $config->rule(PhpUnitConstructFixer::class);
-    $config->rule(PhpUnitDedicateAssertFixer::class);
-    $config->rule(PhpUnitDedicateAssertInternalTypeFixer::class);
-    $config->rule(PhpUnitMethodCasingFixer::class);
-    $config->ruleWithConfiguration(AlignMultilineCommentFixer::class, ['comment_type' => 'all_multiline']);
-    $config->rule(NoEmptyPhpdocFixer::class);
-    $config->ruleWithConfiguration(NoSuperfluousPhpdocTagsFixer::class, ['allow_mixed' => true]);
-    $config->ruleWithConfiguration(PhpdocAlignFixer::class, ['align' => 'left']);
-    $config->rule(PhpdocAnnotationWithoutDotFixer::class);
-    $config->rule(PhpdocIndentFixer::class);
-    $config->rule(PhpdocNoUselessInheritdocFixer::class);
-    $config->rule(PhpdocOrderFixer::class);
-    $config->rule(PhpdocScalarFixer::class);
-    $config->rule(PhpdocSeparationFixer::class);
-    $config->rule(PhpdocSingleLineVarSpacingFixer::class);
-    $config->rule(PhpdocTagCasingFixer::class);
-    $config->rule(PhpdocTrimConsecutiveBlankLineSeparationFixer::class);
-    $config->rule(PhpdocTrimFixer::class);
-    $config->rule(PhpdocTypesFixer::class);
-    $config->rule(PhpdocVarAnnotationCorrectOrderFixer::class);
-    $config->rule(PhpdocVarWithoutNameFixer::class);
-    $config->rule(NoUselessReturnFixer::class);
-    $config->rule(NoEmptyStatementFixer::class);
-    $config->rule(NoSinglelineWhitespaceBeforeSemicolonsFixer::class);
-    $config->rule(SemicolonAfterInstructionFixer::class);
-    $config->rule(SpaceAfterSemicolonFixer::class);
-    $config->rule(DeclareStrictTypesFixer::class);
-    $config->rule(SingleQuoteFixer::class);
-    $config->ruleWithConfiguration(BlankLineBeforeStatementFixer::class, ['statements' => ['return']]);
-    $config->ruleWithConfiguration(NoExtraBlankLinesFixer::class, [
-        'tokens' => [
-            'case',
-            'continue',
-            'curly_brace_block',
-            'default', 'extra',
-            'parenthesis_brace_block',
-            'square_brace_block',
-            'switch',
-            'throw',
-            'use',
-        ],
-    ]);
-    $config->rule(NoSpacesAroundOffsetFixer::class);
-    $config->rule(TypesSpacesFixer::class);
 
-    if (\PHP_VERSION_ID >= 80000) { // The check fails on PHP <8.0. See https://github.com/symplify/symplify/issues/3130
+    $config->rulesWithConfiguration([
+        BinaryOperatorSpacesFixer::class => ['operators' => ['|' => 'no_space']],
+        IncrementStyleFixer::class => ['style' => 'post'],
+        AlignMultilineCommentFixer::class => ['comment_type' => 'all_multiline'],
+        NoSuperfluousPhpdocTagsFixer::class => ['allow_mixed' => true],
+        PhpdocAlignFixer::class => ['align' => 'left'],
+        BlankLineBeforeStatementFixer::class => ['statements' => ['return']],
+    ]);
+
+    $config->ruleWithConfiguration(OrderedClassElementsFixer::class, ['order' => [
+        'use_trait',
+        'constant_public',
+        'constant_protected',
+        'constant_private',
+        'case',
+        'property_public',
+        'property_protected',
+        'property_private',
+        'construct',
+        'destruct',
+        'magic',
+        'phpunit',
+        'method_abstract',
+        'method_public',
+        'method_protected',
+        'method_private',
+    ]]);
+
+    $config->ruleWithConfiguration(NoExtraBlankLinesFixer::class, ['tokens' => [
+        'case',
+        'continue',
+        'curly_brace_block',
+        'default', 'extra',
+        'parenthesis_brace_block',
+        'square_brace_block',
+        'switch',
+        'throw',
+        'use',
+    ]]);
+
+    // The check fails on PHP <8.0. See https://github.com/symplify/symplify/issues/3130
+    if (\PHP_VERSION_ID >= 80000) {
         $config->rule(PhpUnitExpectationFixer::class);
     }
 };
