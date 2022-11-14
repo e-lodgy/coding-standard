@@ -44,9 +44,9 @@ jobs:
                 uses: actions/cache@v3
                 with:
                     path: ${{ steps.composer-cache.outputs.dir }}
-                    key: ${{ runner.os }}-php-${{ matrix.php }}-composer-${{ hashFiles('**/composer.json') }}
+                    key: ${{ runner.os }}-php-${{ matrix.php }}-lowest-${{ matrix.prefer-lowest }}-composer-${{ hashFiles('**/composer.json') }}
                     restore-keys: |
-                        ${{ runner.os }}-php-${{ matrix.php }}-composer-
+                        ${{ runner.os }}-php-${{ matrix.php }}-lowest-${{ matrix.prefer-lowest }}-composer-
                         ${{ runner.os }}-php-
 
             -   name: Install PHP dependencies
@@ -58,4 +58,4 @@ jobs:
                 run: composer validate --ansi --strict
 
             -   name: Run ECS
-                run: vendor/bin/ecs check tests ecs.php --no-interaction --no-progress-bar --ansi
+                run: vendor/bin/ecs check tests/ ecs.php --no-interaction --no-progress-bar --ansi
