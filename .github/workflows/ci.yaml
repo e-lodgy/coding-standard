@@ -19,7 +19,6 @@ jobs:
             fail-fast: false
             matrix:
                 php: [7.4, 8.0, 8.1]
-                lowest: ['', '--prefer-lowest']
 
         steps:
             # --- ⚙️ Setup ⚙️ ----------
@@ -44,13 +43,13 @@ jobs:
                 uses: actions/cache@v3
                 with:
                     path: ${{ steps.composer-cache.outputs.dir }}
-                    key: ${{ runner.os }}-php-${{ matrix.php }}-lowest-${{ matrix.prefer-lowest }}-composer-${{ hashFiles('**/composer.json') }}
+                    key: ${{ runner.os }}-php-${{ matrix.php }}-composer-${{ hashFiles('**/composer.json') }}
                     restore-keys: |
-                        ${{ runner.os }}-php-${{ matrix.php }}-lowest-${{ matrix.prefer-lowest }}-composer-
+                        ${{ runner.os }}-php-${{ matrix.php }}-composer-
                         ${{ runner.os }}-php-
 
             -   name: Install PHP dependencies
-                run: composer update ${{ matrix.lowest }} --no-interaction --no-progress --verbose --ansi
+                run: composer update --no-interaction --no-progress --verbose --ansi
 
             # --- 🛠 Test 🛠 ----------
 
