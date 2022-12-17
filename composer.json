@@ -14,6 +14,9 @@
         "php": "^7.4 || ^8.0",
         "symplify/easy-coding-standard": "^11.1.17"
     },
+    "conflict": {
+        "symplify/easy-coding-standard": "11.1.18"
+    },
     "autoload-dev": {
         "Elodgy\\CodingStandard\\Tests\\": "tests/"
     }
