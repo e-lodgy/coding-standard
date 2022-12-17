@@ -23,5 +23,10 @@ use Symplify\EasyCodingStandard\Config\ECSConfig;
    
 return static function (ECSConfig $config): void {
     $config->import('vendor/e-lodgy/coding-standard/ecs.php');
+    $config->paths([
+      __DIR__ . '/src', // Your project path
+      __DIR__ . '/tests', // Your project test paths
+      __DIR__ . '/ecs.php', // Your own ecs config file
+    ]);
 };
 ```
