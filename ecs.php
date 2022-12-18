@@ -24,6 +24,7 @@ use PhpCsFixer\Fixer\DoctrineAnnotation\DoctrineAnnotationBracesFixer;
 use PhpCsFixer\Fixer\DoctrineAnnotation\DoctrineAnnotationIndentationFixer;
 use PhpCsFixer\Fixer\FunctionNotation\FunctionTypehintSpaceFixer;
 use PhpCsFixer\Fixer\FunctionNotation\LambdaNotUsedImportFixer;
+use PhpCsFixer\Fixer\FunctionNotation\MethodArgumentSpaceFixer;
 use PhpCsFixer\Fixer\FunctionNotation\NullableTypeDeclarationForDefaultNullValueFixer;
 use PhpCsFixer\Fixer\FunctionNotation\StaticLambdaFixer;
 use PhpCsFixer\Fixer\FunctionNotation\VoidReturnFixer;
@@ -163,6 +164,7 @@ return static function (ECSConfig $config): void {
         IncrementStyleFixer::class => ['style' => 'post'],
         NoSuperfluousPhpdocTagsFixer::class => ['allow_mixed' => true],
         PhpdocAlignFixer::class => ['align' => 'left'],
+        MethodArgumentSpaceFixer::class => ['on_multiline' => 'ignore'],
     ]);
 
     $config->ruleWithConfiguration(OrderedClassElementsFixer::class, ['order' => [
