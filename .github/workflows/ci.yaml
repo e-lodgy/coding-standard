@@ -56,5 +56,12 @@ jobs:
             -   name: Validate composer.json
                 run: composer validate --ansi --strict
 
-            -   name: Run ECS
-                run: vendor/bin/ecs check tests/ ecs.php --no-interaction --no-progress-bar --ansi
+            -   name: Run ECS with errors
+                run: vendor/bin/ecs check tests/errors/ --output-format=json --config=ecs_tests.php --no-interaction --no-progress-bar > ecs_errors.json
+                continue-on-error: true
+
+            -   name: Run ECS with no errors
+                run: vendor/bin/ecs check tests/no_errors ecs.php --output-format=json --config=ecs_tests.php --no-interaction --no-progress-bar > ecs_no_errors.json
+
+            -   name: PHPUnit tests
+                run: vendor/bin/phpunit --verbose --colors=always --fail-on-incomplete --fail-on-risky --no-interaction --do-not-cache-result

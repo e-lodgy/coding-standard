@@ -1,2 +1,11 @@
+# Composer
 /composer.lock
 /vendor/
+
+# PHPUnit
+/.phpunit.result.cache
+/phpunit.xml
+
+# ECS
+/ecs_errors.json
+/ecs_no_errors.json
