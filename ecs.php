@@ -36,7 +36,6 @@ use PhpCsFixer\Fixer\LanguageConstruct\CombineConsecutiveUnsetsFixer;
 use PhpCsFixer\Fixer\LanguageConstruct\DeclareParenthesesFixer;
 use PhpCsFixer\Fixer\LanguageConstruct\SingleSpaceAfterConstructFixer;
 use PhpCsFixer\Fixer\ListNotation\ListSyntaxFixer;
-use PhpCsFixer\Fixer\NamespaceNotation\CleanNamespaceFixer;
 use PhpCsFixer\Fixer\NamespaceNotation\NoLeadingNamespaceWhitespaceFixer;
 use PhpCsFixer\Fixer\Operator\BinaryOperatorSpacesFixer;
 use PhpCsFixer\Fixer\Operator\IncrementStyleFixer;
@@ -89,7 +88,6 @@ return static function (ECSConfig $config): void {
     // Fixers
     $config->rules([
         CastSpacesFixer::class,
-        CleanNamespaceFixer::class,
         CombineConsecutiveIssetsFixer::class,
         CombineConsecutiveUnsetsFixer::class,
         DeclareParenthesesFixer::class,
@@ -158,7 +156,7 @@ return static function (ECSConfig $config): void {
     ]);
 
     $config->rulesWithConfiguration([
-        AlignMultilineCommentFixer::class => ['comment_type' => 'all_multiline'],
+        AlignMultilineCommentFixer::class => ['comment_type' => 'phpdocs_like'],
         BinaryOperatorSpacesFixer::class => ['operators' => ['|' => 'no_space']],
         BlankLineBeforeStatementFixer::class => ['statements' => ['return']],
         IncrementStyleFixer::class => ['style' => 'post'],
@@ -190,7 +188,8 @@ return static function (ECSConfig $config): void {
         'case',
         'continue',
         'curly_brace_block',
-        'default', 'extra',
+        'default',
+        'extra',
         'parenthesis_brace_block',
         'square_brace_block',
         'switch',
