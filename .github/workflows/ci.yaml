@@ -63,5 +63,8 @@ jobs:
             -   name: Run ECS with no errors
                 run: vendor/bin/ecs check tests/no_errors ecs.php --output-format=json --config=ecs_tests.php --no-interaction --no-progress-bar > ecs_no_errors.json
 
+            -   name: PHPStan analyse
+                run: vendor/bin/phpstan analyse --configuration=phpstan-ci.neon --error-format=github --no-progress --no-interaction --ansi
+
             -   name: PHPUnit tests
                 run: vendor/bin/phpunit --verbose --colors=always --fail-on-incomplete --fail-on-risky --no-interaction --do-not-cache-result

@@ -1,0 +1,27 @@
+parameters:
+  level: max
+  paths:
+    - ecs.php
+
+  checkGenericClassInNonGenericObjectType: false
+
+  ignoreErrors:
+    -
+      message: "#^Class PhpCsFixer\\\\Fixer\\\\.* not found\\.$#"
+      count: 78
+      path: ecs.php
+
+    -
+      message: "#^Parameter \\#1 \\$checkerClass of method Symplify\\\\EasyCodingStandard\\\\Config\\\\ECSConfig\\:\\:rule\\(\\) expects class\\-string\\<PHP_CodeSniffer\\\\Sniffs\\\\Sniff\\|PhpCsFixer\\\\Fixer\\\\FixerInterface\\>, string given\\.$#"
+      count: 1
+      path: ecs.php
+
+    -
+      message: "#^Parameter \\#1 \\$checkerClasses of method Symplify\\\\EasyCodingStandard\\\\Config\\\\ECSConfig\\:\\:rules\\(\\) expects array\\<class\\-string\\<PHP_CodeSniffer\\\\Sniffs\\\\Sniff\\|PhpCsFixer\\\\Fixer\\\\FixerInterface\\>\\>, array\\<int, string\\> given\\.$#"
+      count: 1
+      path: ecs.php
+
+    -
+      message: "#^Parameter \\#1 \\$rulesWithConfiguration of method Symplify\\\\EasyCodingStandard\\\\Config\\\\ECSConfig\\:\\:rulesWithConfiguration\\(\\) expects array\\<class\\-string\\<PHP_CodeSniffer\\\\Sniffs\\\\Sniff\\|PhpCsFixer\\\\Fixer\\\\FixerInterface\\>, array\\>, array\\<string, array\\<string, array\\<int\\|string, string\\>\\|bool\\|string\\>\\> given\\.$#"
+      count: 1
+      path: ecs.php
