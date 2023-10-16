@@ -140,6 +140,7 @@ return static function (ECSConfig $config): void {
         PhpUnitConstructFixer::class,
         PhpUnitDedicateAssertFixer::class,
         PhpUnitDedicateAssertInternalTypeFixer::class,
+        PhpUnitExpectationFixer::class,
         PhpUnitMethodCasingFixer::class,
         SelfStaticAccessorFixer::class,
         SemicolonAfterInstructionFixer::class,
@@ -197,12 +198,10 @@ return static function (ECSConfig $config): void {
         'use',
     ]]);
 
-    // The check fails on PHP <8.0. See https://github.com/symplify/symplify/issues/3130
-    if (\PHP_VERSION_ID >= 80000) {
-        $config->rule(PhpUnitExpectationFixer::class);
-    }
-
     if (\PHP_VERSION_ID < 80000) {
+        // The check fails on PHP <8.0. See https://github.com/symplify/symplify/issues/3130
+        $config->skip([PhpUnitExpectationFixer::class]);
+
         // Override, parameters are only available in PHP 8+
         $config->ruleWithConfiguration(TrailingCommaInMultilineFixer::class, ['elements' => ['arguments', 'arrays']]);
     }
