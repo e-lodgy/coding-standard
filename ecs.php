@@ -150,7 +150,6 @@ return static function (ECSConfig $config): void {
         StandardizeNotEqualsFixer::class,
         StaticLambdaFixer::class,
         TernaryToNullCoalescingFixer::class,
-        TrailingCommaInMultilineFixer::class,
         TypesSpacesFixer::class,
         VoidReturnFixer::class,
     ]);
@@ -160,9 +159,10 @@ return static function (ECSConfig $config): void {
         BinaryOperatorSpacesFixer::class => ['operators' => ['|' => 'no_space']],
         BlankLineBeforeStatementFixer::class => ['statements' => ['return']],
         IncrementStyleFixer::class => ['style' => 'post'],
+        MethodArgumentSpaceFixer::class => ['on_multiline' => 'ignore'],
         NoSuperfluousPhpdocTagsFixer::class => ['allow_mixed' => true],
         PhpdocAlignFixer::class => ['align' => 'left'],
-        MethodArgumentSpaceFixer::class => ['on_multiline' => 'ignore'],
+        TrailingCommaInMultilineFixer::class => ['elements' => ['arguments', 'arrays', 'match', 'parameters']],
     ]);
 
     $config->ruleWithConfiguration(OrderedClassElementsFixer::class, ['order' => [
@@ -200,5 +200,10 @@ return static function (ECSConfig $config): void {
     // The check fails on PHP <8.0. See https://github.com/symplify/symplify/issues/3130
     if (\PHP_VERSION_ID >= 80000) {
         $config->rule(PhpUnitExpectationFixer::class);
+    }
+
+    if (\PHP_VERSION_ID < 80000) {
+        // Override, parameters are only available in PHP 8+
+        $config->ruleWithConfiguration(TrailingCommaInMultilineFixer::class, ['elements' => ['arguments', 'arrays']]);
     }
 };
