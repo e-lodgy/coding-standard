@@ -150,7 +150,6 @@ return static function (ECSConfig $config): void {
         StandardizeNotEqualsFixer::class,
         StaticLambdaFixer::class,
         TernaryToNullCoalescingFixer::class,
-        TrailingCommaInMultilineFixer::class,
         TypesSpacesFixer::class,
         VoidReturnFixer::class,
     ]);
@@ -160,9 +159,10 @@ return static function (ECSConfig $config): void {
         BinaryOperatorSpacesFixer::class => ['operators' => ['|' => 'no_space']],
         BlankLineBeforeStatementFixer::class => ['statements' => ['return']],
         IncrementStyleFixer::class => ['style' => 'post'],
+        MethodArgumentSpaceFixer::class => ['on_multiline' => 'ignore'],
         NoSuperfluousPhpdocTagsFixer::class => ['allow_mixed' => true],
         PhpdocAlignFixer::class => ['align' => 'left'],
-        MethodArgumentSpaceFixer::class => ['on_multiline' => 'ignore'],
+        TrailingCommaInMultilineFixer::class => ['elements' => ['arguments', 'arrays', 'match', 'parameters']],
     ]);
 
     $config->ruleWithConfiguration(OrderedClassElementsFixer::class, ['order' => [
