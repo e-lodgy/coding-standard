@@ -201,4 +201,9 @@ return static function (ECSConfig $config): void {
     if (\PHP_VERSION_ID >= 80000) {
         $config->rule(PhpUnitExpectationFixer::class);
     }
+
+    if (\PHP_VERSION_ID < 80000) {
+        // Override, parameters are only available in PHP 8+
+        $config->ruleWithConfiguration(TrailingCommaInMultilineFixer::class, ['elements' => ['arguments', 'arrays']]);
+    }
 };
